@@ -1,92 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Māori-inspired color system */
+    --background: 46 39 32; /* Deep earth brown */
+    --foreground: 246 243 240; /* Light cream */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 60 50 42; /* Warmer brown for cards */
+    --card-foreground: 246 243 240;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 60 50 42;
+    --popover-foreground: 246 243 240;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 14 165 233; /* Moana blue */
+    --primary-foreground: 240 249 255;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 117 96 74; /* Whenua brown */
+    --secondary-foreground: 246 243 240;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 95 82 62;
+    --muted-foreground: 209 195 177;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 34 197 94; /* Ngahere green */
+    --accent-foreground: 240 253 244;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 249 115 22; /* Ahi orange */
+    --destructive-foreground: 255 247 237;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 117 96 74;
+    --input: 95 82 62;
+    --ring: 14 165 233;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 95 82 62;
+    --sidebar-foreground: 246 243 240;
+    --sidebar-primary: 14 165 233;
+    --sidebar-primary-foreground: 240 249 255;
+    --sidebar-accent: 117 96 74;
+    --sidebar-accent-foreground: 246 243 240;
+    --sidebar-border: 139 115 85;
+    --sidebar-ring: 14 165 233;
   }
 }
 
@@ -96,6 +53,104 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-maori;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="koru" patternUnits="userSpaceOnUse" width="50" height="50"><path d="M10,25 Q15,15 25,20 Q35,25 30,35 Q25,45 15,40 Q5,35 10,25" fill="none" stroke="rgb(117,96,74)" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="200" height="200" fill="url(%23koru)"/></svg>');
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar for horizontal scrolling */
+  .horizontal-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--muted));
+  }
+
+  .horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  /* Māori cultural pattern utilities */
+  .koru-border {
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 Q5,0 10,5 Q15,10 20,5 Q25,0 30,5 Q35,10 40,5 Q45,0 50,5 Q55,10 60,5 Q65,0 70,5 Q75,10 80,5 Q85,0 90,5 Q95,10 100,5" stroke="rgb(14,165,233)" stroke-width="2" fill="none"/></svg>') 4;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .maori-pattern-bg {
+    background-image: radial-gradient(circle at 25% 25%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+  }
+
+  .journey-path {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--primary) / 0.3) 20%,
+      hsl(var(--primary) / 0.5) 50%,
+      hsl(var(--primary) / 0.3) 80%,
+      transparent 100%
+    );
+    height: 4px;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .journey-path::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      hsl(var(--accent)) 0px,
+      hsl(var(--accent)) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+    opacity: 0.5;
+  }
+
+  .activity-node {
+    @apply relative w-16 h-16 rounded-full border-4 flex items-center justify-center font-bold text-lg transition-all duration-300 cursor-pointer;
+  }
+
+  .activity-node.locked {
+    @apply border-muted bg-muted/20 text-muted-foreground cursor-not-allowed;
+  }
+
+  .activity-node.unlocked {
+    @apply border-primary bg-primary/20 text-primary hover:scale-110 hover:border-accent;
+  }
+
+  .activity-node.completed {
+    @apply border-accent bg-accent text-accent-foreground;
+  }
+
+  .maori-card {
+    @apply bg-card/90 backdrop-blur-sm border border-primary/20 rounded-lg p-6 shadow-lg;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q30,30 50,40 Q70,50 60,70 Q50,90 30,80 Q10,70 20,50" fill="none" stroke="rgb(14,165,233)" stroke-width="1" opacity="0.1"/></svg>');
   }
 }
